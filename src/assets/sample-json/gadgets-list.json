@@ -1,0 +1,74 @@
+{
+    "gadgetsList":[
+        {
+            "id":1,
+            "productId":1201,
+            "productName":"Apple iPhone 7",
+            "productImage":"assets/gadgets-images/iphone-7-png-transparent-25.png",
+            "isFavourite":true,
+            "category":"Mobile Phones",
+            "rating":4,
+            "details":{
+                "price":123000,
+                "currency":"INR",
+                "description":""
+            }
+        },
+        {
+            "id":2,
+            "productId":1202,
+            "productName":"Apple iPhone 7 plus",
+            "productImage":"assets/gadgets-images/iphone-7-plus.png",
+            "isFavourite":true,
+            "category":"Mobile Phones",
+            "rating":4,
+            "details":{
+                "price":223000,
+                "currency":"INR",
+                "description":""
+            }
+        },
+        {
+            "id":3,
+            "productId":1203,
+            "productName":"Samsung Galaxy S9 Black",
+            "productImage":"assets/gadgets-images/Samsung-galaxy-s9.png",
+            "isFavourite":true,
+            "category":"Mobile Phones",
+            "rating":3,
+            "details":{
+                "price":22000,
+                "currency":"INR",
+                "description":""
+            }
+        },
+        {
+            "id":3,
+            "productId":1204,
+            "productName":"Samsung Galaxy S9 Blue",
+            "productImage":"assets/gadgets-images/Samsung-galaxy-s9-blue.png",
+            "isFavourite":true,
+            "category":"Mobile Phones",
+            "rating":3,
+            "details":{
+                "price":22000,
+                "currency":"INR",
+                "description":""
+            }
+        },
+        {
+            "id":4,
+            "productId":1205,
+            "productName":"Apple Macbook Pink",
+            "productImage":"assets/gadgets-images/apple-macbook-pink.png",
+            "isFavourite":false,
+            "category":"Laptops",
+            "rating":3.5,
+            "details":{
+                "price":22000,
+                "currency":"INR",
+                "description":""
+            }
+        }  
+    ]
+}

@@ -1,0 +1,8 @@
+<ion-slides autoplay="true" loop="true" class="slides" pager="true" [options]="slideOpts">
+  <ion-slide    *ngFor="let gadget of gadgetList">
+    <div class="slide">
+      <img [src]="gadget.productImage" class="images"/>
+      <h4>{{gadget.productName}}</h4>
+    </div>
+  </ion-slide>
+</ion-slides>

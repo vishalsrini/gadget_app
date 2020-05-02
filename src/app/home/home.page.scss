@@ -1,0 +1,23 @@
+// gadgets card styles
+.welcome-card img {
+  object-fit: scale-down;
+  max-height: 35vh;
+  max-width: 100%;
+  border: 0;
+  text-align: center;
+  height: 145px;
+  width: 100%;
+  overflow: hidden;
+}
+
+// top-highlights component styles
+app-top-highlights {
+  width: 100%;
+  height: 50% !important;
+}
+
+// youtube ion styles
+.youtube {
+  font-size: 19px;
+  color: red;
+}

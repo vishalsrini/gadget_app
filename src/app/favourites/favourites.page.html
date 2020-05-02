@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar class="new-background-color">
+      <ion-title>
+        Favourites
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-card class="welcome-card" *ngFor="let gadget of gadgetList">
+      <img [src]="gadget.productImage" alt="" />
+      <ion-card-header>
+        <ion-card-subtitle>
+          <ionic4-star-rating #rating activeIcon="star" defaultIcon="star-outline" activeColor="#488aff"
+            defaultColor="grey" readonly="true" [rating]="gadget.rating" fontSize="12px" (ratingChanged)="logRatingChange($event)">
+          </ionic4-star-rating>
+        </ion-card-subtitle>
+        <ion-card-title>
+          <span>{{gadget.productName}}</span>
+          <ion-icon style="float: right;" color="danger" [name]="gadget.isFavourite ? 'heart' :'heart-outline'"
+            (click)="clickFavourites(gadget)"></ion-icon>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+          <p>
+              <span>{{gadget.details.price | currency:gadget.details.currency}}</span>
+              <span (click)="viewDetail(gadget.productId)" class="pull-right pointer">  <ion-icon class="youtube" name="logo-youtube"></ion-icon></span>
+            </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>

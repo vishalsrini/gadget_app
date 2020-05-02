@@ -1,0 +1,42 @@
+{
+    "gadgetDetail": [
+        {
+            "productId": 1201,
+            "productName": "Apple iphone 7",
+            "youtubers": [
+                {
+                    "name": "Manisha",
+                    "link": "https://www.youtube.com/watch?v=B_RL_iotBi8"
+                },
+                {
+                    "name": "Sanjay",
+                    "link": "https://www.youtube.com/watch?v=2nNadcg5DmU"
+                }
+            ]
+        },
+        {
+            "productId": 1203,
+            "productName": "Samsung Galaxy S9 Blue",
+            "youtubers": [
+                {
+                    "name": "Manisha",
+                    "link": "https://www.youtube.com/watch?v=I_TR8K-8vlI"
+                },
+                {
+                    "name": "Vishal",
+                    "link": "https://www.youtube.com/watch?v=ag1qbFePdxQ"
+                }
+            ]
+        },
+        {
+            "productId": 1205,
+            "productName": "Apple Macbook Pink",
+            "youtubers": [
+                {
+                    "name": "Manisha",
+                    "link": "https://www.youtube.com/watch?v=lhOL-egdsGM"
+                }
+            ]
+        }
+    ]
+}

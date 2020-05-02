@@ -1,0 +1,57 @@
+ion-slides {
+  height: 100%;
+}
+
+.swiper-slide {
+  display: block;
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.99) 3%, rgba(186,186,186,0.94) 25%, rgba(79,79,79,0.84) 66%, rgba(255,255,255,0.81) 80%, rgba(237,237,237,0.76) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(3%, rgba(255,255,255,0.99)), color-stop(25%, rgba(186,186,186,0.94)), color-stop(66%, rgba(79,79,79,0.84)), color-stop(80%, rgba(255,255,255,0.81)), color-stop(100%, rgba(237,237,237,0.76)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.99) 3%, rgba(186,186,186,0.94) 25%, rgba(79,79,79,0.84) 66%, rgba(255,255,255,0.81) 80%, rgba(237,237,237,0.76) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.99) 3%, rgba(186,186,186,0.94) 25%, rgba(79,79,79,0.84) 66%, rgba(255,255,255,0.81) 80%, rgba(237,237,237,0.76) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.99) 3%, rgba(186,186,186,0.94) 25%, rgba(79,79,79,0.84) 66%, rgba(255,255,255,0.81) 80%, rgba(237,237,237,0.76) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.99) 3%, rgba(186,186,186,0.94) 25%, rgba(79,79,79,0.84) 66%, rgba(255,255,255,0.81) 80%, rgba(237,237,237,0.76) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+}
+.slide{
+    margin-bottom: 30px !important;
+}
+.swiper-slide h2 {
+  margin-top: 10px;
+}
+
+.swiper-slide img {
+  max-height: 50%;
+  max-width: 50%;
+  margin: 14px 0 11px;
+  pointer-events: none;
+  
+}
+.swiper-slide img {
+  width: 30%;
+}
+b {
+  font-weight: 500;
+}
+
+p {
+  padding: 0 40px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ion-color-step-600, #60646b);
+}
+
+p b {
+  color: var(--ion-text-color, #000000);
+}
+
+.images{
+    object-fit: scale-down !important;
+    max-height: 35vh !important;
+    max-width: 100% !important;
+    border: 0;
+    text-align: center;
+    height: 145px !important;
+    width: 100% !important;
+    overflow: hidden;
+}
