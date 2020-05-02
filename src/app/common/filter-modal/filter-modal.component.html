@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-toolbar text-center>
+    <ion-title>
+     Categories
+    </ion-title>
+  </ion-toolbar>
+  </ion-header>
+<ion-content>
+ <ion-list>
+  <ion-item *ngFor="let entry of categories">
+    <ion-label>{{entry.name}}</ion-label>
+    <ion-checkbox slot="end" [name]="entry.name" [(ngModel)]="entry.isChecked"></ion-checkbox>
+  </ion-item>
+</ion-list>
+<ion-button expand="block" (click)="send()">Apply Filter</ion-button>
+</ion-content>

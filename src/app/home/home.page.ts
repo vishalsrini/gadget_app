@@ -1,8 +1,9 @@
+import { FilterModalComponent } from './../common/filter-modal/filter-modal.component';
 import { HomeService } from './home.service';
 import { Component } from '@angular/core';
 import { ModalController, LoadingController, ToastController } from '@ionic/angular';
 import { YoutubeListModalComponent } from '../common/youtube-list-modal/youtube-list-modal.component';
-
+import * as _ from 'lodash';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'home.page.html',
@@ -13,6 +14,7 @@ export class HomePage {
   customGadgetList: any = [];
   searchText: any;
   videoDetail = [];
+  categories: any = [];
   constructor(private homeService: HomeService, public modalController: ModalController,
     public loadingController: LoadingController, public toastController: ToastController) {
   }
@@ -26,21 +28,28 @@ export class HomePage {
     this.resetItems();
   }
 
+  getCategories() {
+    return _.uniqBy(this.gadgetList, 'category')
+  }
+
   // reseting the filters 
   resetItems() {
     this.searchText = '';
   }
 
   getGadgets() {
+    this.categories=[];
     // getting gadgets master list from service
     this.homeService.getGadgets().subscribe(success => {
       console.log(success);
       if (success) {
         this.gadgetList = success.gadgetsList;
         this.customGadgetList = this.gadgetList;
+        let categorylist = this.getCategories();
+        console.log(categorylist);
+        categorylist.length ? categorylist.every(ele => this.categories.push({ name: ele.category, isChecked: true })) : [];
       }
     }, error => {
-
     })
   }
 
@@ -50,6 +59,13 @@ export class HomePage {
     this.customGadgetList = this.gadgetList.filter(ele => ele.productName.toLowerCase().includes(event));
   }
 
+  filter(){
+    let selectedCategory=[];
+    this.categories.forEach(ele=> ele.isChecked ? selectedCategory.push(ele.name):'');
+    console.log(selectedCategory)
+    this.customGadgetList=selectedCategory.length ? this.gadgetList.filter(ele=> selectedCategory.includes(ele.category)):this.gadgetList;
+  }
+
   // favourites selection
   clickFavourites(gadget) {
     gadget.isFavourite = !gadget.isFavourite;
@@ -57,12 +73,13 @@ export class HomePage {
 
   // fetching video details for selected product
   viewDetail(productId) {
-    this.videoDetail=[];
+    this.videoDetail = [];
     console.log(productId)
-    this.showLoader()
+    this.showLoader();
+    let selectedProduct;
     this.homeService.getGadgetDetail(productId).subscribe(success => {
       // remove this once integrated with api
-      let selectedProduct = success.gadgetDetail.find(ele => ele.productId == productId);
+      selectedProduct = success.gadgetDetail.find(ele => ele.productId == productId);
       if (selectedProduct) {
         if (selectedProduct.youtubers.length) {
           selectedProduct.youtubers.forEach(element => {
@@ -85,7 +102,7 @@ export class HomePage {
       setTimeout(() => {
         this.hideLoader();
         if (this.videoDetail.length) {
-          this.presentModal();
+          this.presentModal(selectedProduct.productName);
         }
       }, 2000)
     }, error => {
@@ -109,11 +126,12 @@ export class HomePage {
   }
 
   // method to open the youtube modal
-  async presentModal() {
+  async presentModal(productName) {
     try {
       const modal = await this.modalController.create({
         component: YoutubeListModalComponent,
         componentProps: {
+          'productName':productName,
           'videoData': this.videoDetail,
         }
       });
@@ -132,4 +150,24 @@ export class HomePage {
     });
     toast.present();
   }
+
+  async openBottomfilterSheet() {
+    const presentModel = await this.modalController.create({
+      component: FilterModalComponent,
+      componentProps: {
+        'categories': this.categories
+      },
+      backdropDismiss:false,
+      showBackdrop: true,
+      cssClass: 'filter-modal'
+    });
+    presentModel.onWillDismiss().then((data) => {
+      console.log(data);
+      this.categories=data.data;
+      this.filter();
+      
+    });
+    return await presentModel.present();
+  }
+
 }

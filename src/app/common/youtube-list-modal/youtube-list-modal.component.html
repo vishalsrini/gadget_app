@@ -1,18 +1,18 @@
 <ion-header translucent>
     <ion-toolbar>
-      <ion-title>Videos</ion-title>
+      <ion-title>{{productName}}</ion-title>
       <ion-buttons slot="end">
         <ion-button (click)="dismissModal()">Close</ion-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
-      <ion-card *ngFor="let video of videoData"> 
-        <div class="container" (click)="openVideo(video.id,video)" >
-            <img class="video-img" [src]="video?.snippet?.thumbnails?.default.url" />
+      <ion-card *ngFor="let video of videoData" > 
+        <div class="container" (click)="openVideo(video.id,video)" *ngIf="!video.showPlayer">
+            <img class="video-img" alt="" [src]="video?.snippet?.thumbnails?.default.url" />
             <ion-icon class="youtube" name="logo-youtube"></ion-icon><ion-ripple-effect></ion-ripple-effect>
         </div>
-        <!-- <div [id]="video.id" ></div> -->
+        <div [id]="video.id" ></div>
           <ion-card-header>
             <ion-card-subtitle>
                 <a href="https://www.youtube.com/watch?v={{video.id}}">https://www.youtube.com/watch?v={{video.id}}</a>

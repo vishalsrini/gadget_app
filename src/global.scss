@@ -34,23 +34,32 @@
 }
 
 .searchbar-input {
-    border-radius: 5px !important;
-    box-shadow: none !important;
+  border-radius: 5px !important;
+  box-shadow: none !important;
 }
 
-.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
-    bottom: 3px !important;
-    left: 0;
-    width: 100%;
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: 3px !important;
+  left: 0;
+  width: 100%;
 }
 
 .swiper-pagination-bullet {
-    background: #4487ff;
+  background: #4487ff;
 }
 
 ion-header {
-    background: #bebebe !important;
+  background: #bebebe !important;
 }
-.new-background-color{
-    --background: #bebebe;
+.new-background-color {
+  --background: #bebebe;
+}
+.filter-modal {
+  --height: 60%;
+  align-items: flex-end;
+}
+iframe {
+  width: 100% !important;
 }

@@ -13,6 +13,7 @@ import { Plugins, Capacitor } from '@capacitor/core'; // Native version
 })
 export class YoutubeListModalComponent implements OnInit {
   @Input() videoData: any[];
+  @Input() productName:any;
 
   constructor(navParams: NavParams, private modalCtrl: ModalController) {
     // componentProps can also be accessed at construction time using NavParams
@@ -29,57 +30,57 @@ export class YoutubeListModalComponent implements OnInit {
     }
   }
 
-  openVideo(id,video){
+  // openVideo(id,video){
     
-  }
+  // }
 
   // video player plugin
 
-  // resetAllVideos(id) {
-  //   this.videoData.forEach(element => {
-  //     element.showPlayer = false;
-  //     if(element.id!=id){
-  //          if (Capacitor.platform === 'web') {
-  //       this.destroyYoutubePlayerPluginWeb(element.id);
-  //     } else { // Native
-  //       this.destroyYoutubePlayerPlugin(element.id);
-  //     }
-  //   }
+  resetAllVideos(id) {
+    this.videoData.forEach(element => {
+      element.showPlayer = false;
+      if(element.id!=id){
+           if (Capacitor.platform === 'web') {
+        this.destroyYoutubePlayerPluginWeb(element.id);
+      } else { // Native
+        this.destroyYoutubePlayerPlugin(element.id);
+      }
+    }
    
-  //   })
-  // }
-  // openVideo(id, video) {
-  //   this.resetAllVideos(id);
-  //   video.showPlayer = true;
-  //   if (Capacitor.platform === 'web') {
-  //     this.initializeYoutubePlayerPluginWeb(id);
-  //   } else { // Native
-  //     this.initializeYoutubePlayerPluginNative(id);
-  //   }
-  //  console.log(video)
+    })
+  }
+  openVideo(id, video) {
+    this.resetAllVideos(id);
+    video.showPlayer = true;
+    if (Capacitor.platform === 'web') {
+      this.initializeYoutubePlayerPluginWeb(id);
+    } else { // Native
+      this.initializeYoutubePlayerPluginNative(id);
+    }
+   console.log(video)
 
     
-  // }
-  // async initializeYoutubePlayerPluginWeb(id) {
-  //   const options = { playerId: id,playerSize:{},autoplay:1, videoId: id };
-  //   const result = await YoutubePlayerWeb.initialize(options);
-  //   console.log('playerReady', result);
-  // }
+  }
+  async initializeYoutubePlayerPluginWeb(id) {
+    const options = { playerId: id,playerSize:{},autoplay:1, videoId: id };
+    const result = await YoutubePlayerWeb.initialize(options);
+    console.log('playerReady', result);
+  }
 
-  // async destroyYoutubePlayerPluginWeb(id) {
-  //   const result = await YoutubePlayerWeb.destroy(id);
-  //   console.log('destroyYoutubePlayer', result);
-  // }
-  // async destroyYoutubePlayerPlugin(id) {
-  //   const { YoutubePlayer } = Plugins;
-  //   const result = await YoutubePlayer.destroy(id);
-  //   console.log('destroyYoutubePlayer', result);
-  // }
-  // async initializeYoutubePlayerPluginNative(id) {
+  async destroyYoutubePlayerPluginWeb(id) {
+    const result = await YoutubePlayerWeb.destroy(id);
+    console.log('destroyYoutubePlayer', result);
+  }
+  async destroyYoutubePlayerPlugin(id) {
+    const { YoutubePlayer } = Plugins;
+    const result = await YoutubePlayer.destroy(id);
+    console.log('destroyYoutubePlayer', result);
+  }
+  async initializeYoutubePlayerPluginNative(id) {
 
-  //   const { YoutubePlayer } = Plugins;
-  //   let options = { width: '100%', height: '100%', autoplay:1, videoId: id };
-  //   let playerReady = await YoutubePlayer.initialize(options);
-  // }
+    const { YoutubePlayer } = Plugins;
+    let options = { width: '100%', height: '100%', autoplay:1, videoId: id };
+    let playerReady = await YoutubePlayer.initialize(options);
+  }
 
 }

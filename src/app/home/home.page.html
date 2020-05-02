@@ -1,8 +1,9 @@
 <!-- start of the header -->
 <ion-header>
   <ion-toolbar class="new-background-color">
-    <ion-title>
-      Home
+    <ion-title > 
+      <span>Home</span> 
+      <span class="pull-right" (click)="openBottomfilterSheet()"><ion-icon name="funnel"></ion-icon></span>
     </ion-title>
   </ion-toolbar>
   <!-- search Box starts here-->
@@ -22,6 +23,7 @@
   </ion-row>
   <!-- swiper component ends here -->
   <!-- gadgets card starts here -->
+  <ion-row>
   <ion-card class="welcome-card" *ngFor="let gadget of customGadgetList">
     <img [src]="gadget.productImage" alt="" />
     <ion-card-header>
@@ -46,6 +48,7 @@
       </p>
     </ion-card-content>
   </ion-card>
+  </ion-row>
   <!-- gadgets card ends here -->
 </ion-content>
 <!-- end of content -->
